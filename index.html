@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/crystal.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/javascript/fruit.js"></script>
+
     <title>Document</title>
 </head>
 <body>
@@ -25,18 +28,19 @@
                             You lose the game if your total score goes above the random number.</p>
                         <p class="p-1">The value of each fruit is hidden from you until you click on it.</p>
                         <p class="p-1">Each time when the game starts, the value of each fruit changes.</p>           
+                        <button id="start">Start Game</button><hr>
                     </div>
         
                     <div class="col-md-8">
-                        <h4 class="random-number">Random Number: </h4>
-                        <h4 class="total-score">Your Total Score: </h4>
-                        <img class="fruit-1" src="./assets/images/apple.png" height="150px" width="150px">
-                        <img class="fruit-2" src="./assets/images/banana.png" height="150px" width="150px">
-                        <img class="fruit-3" src="./assets/images/orange.png" height="150px" width="150px">
-                        <img class="fruit-4" src="./assets/images/strawberry.png" height="150px" width="150px">
+                        <h4 class="random-number" id="id-randomnumber">Random Number: </h4>
+                        <h4 class="total-score" id="id-totalscore">Your Total Score: </h4>
+                        <img id="fruit-1" src="./assets/images/apple.png" height="150px" width="150px">
+                        <img id="fruit-2" src="./assets/images/banana.png" height="150px" width="150px">
+                        <img id="fruit-3" src="./assets/images/orange.png" height="150px" width="150px">
+                        <img id="fruit-4" src="./assets/images/strawberry.png" height="150px" width="150px">
 
-                        <h4 class="wins">Wins: </h4>
-                        <h4 class="losses">Losses: </h4>
+                        <h4 class="wins" id="id-wins">Wins: </h4>
+                        <h4 class="losses" id="id-losses">Losses: </h4>
                         
                     </div>
                  </div>
@@ -45,4 +49,5 @@
     
     
 </body>
+
 </html>
