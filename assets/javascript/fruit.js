@@ -12,13 +12,20 @@ $("#id-wins").html(wins);
 var losses = 0;
 $("#id-losses").html(losses);
 
-var totalScore=[];
+var totalScore=0;
 $("#id-totalscore").html("Your Total Score: " + totalScore);
 
 var randomNumberArray = [];
 
+//setting values to fruit 
+var fruit1= Math.floor(Math.random()*11+1);
+var fruit2= Math.floor(Math.random()*11+1);
+var fruit3= Math.floor(Math.random()*11+1);
+var fruit4= Math.floor(Math.random()*11+1);
+
 
 var chooseNumber = Math.floor(Math.random()*101+19); 
+
 
 //function startGame
 function startGame () {
@@ -30,16 +37,17 @@ function startGame () {
     //reflet on html
     // var updateLossesHtml = document.querySelector("id-losses");
     // updateLossesHtml.textContent= losses;
-    var totalScore=[];
+    var totalScore=0;
     //reflect on html
     // var updateTotalScoreHtml=document.querySelector("id-totalscore");
     // updateTotalScoreHtml.textContent=totalScore;
     var displayRandomNumber = document.querySelector("#id-randomnumber");
     displayRandomNumber.textContent="Random Number: " + chooseNumber;
-    var fruit1= Math.floor(Math.random()*11+1);
-    var fruit2= Math.floor(Math.random()*11+1);
-    var fruit3= Math.floor(Math.random()*11+1);
-    var fruit4= Math.floor(Math.random()*11+1);
+    fruit1;
+    fruit2;
+    fruit3;
+    fruit4;
+   
     
 }
 //setting start button to startGame function
@@ -51,52 +59,48 @@ $(document).on("click", "#start", function() {
 })
 
 function reset() {
-    var totalScore=[];
+    var totalScore=0;
     $("#id-totalscore").html("Your Total Score: " + totalScore);
-    var chooseNumber = Math.floor(Math.random()*101+19); 
-    var displayRandomNumber = document.querySelector("#id-randomnumber");
+    //var chooseNumber = Math.floor(Math.random()*101+19); 
+    //var displayRandomNumber = document.querySelector("#id-randomnumber");
+    chooseNumber = Math.floor(Math.random()*101+19); 
+    displayRandomNumber = document.querySelector("#id-randomnumber");
     displayRandomNumber.textContent="Random Number: " + chooseNumber;
-    var fruit1= Math.floor(Math.random()*11+1);
-    var fruit2= Math.floor(Math.random()*11+1);
-    var fruit3= Math.floor(Math.random()*11+1);
-    var fruit4= Math.floor(Math.random()*11+1);
+    fruit1; //if you just have fruit1; then it keeps first number assigned to fruit1 
+    fruit2; 
+    fruit3;
+    fruit4;
 }
 
 $(document).on("click", "#reset", function() {
     reset();
 })
 
-//setting values to fruit
-var fruit1= Math.floor(Math.random()*11+1)
-console.log(fruit1);
-var fruit2= Math.floor(Math.random()*11+1)
-console.log(fruit2);
-var fruit3= Math.floor(Math.random()*11+1)
-console.log(fruit3);
-var fruit4= Math.floor(Math.random()*11+1)
-console.log(fruit4);
 
 function winner () {
     alert ("You won! Click reset to play again.");
     wins++;
-    $('#id-wins').text(wins);
+    $('#id-wins').text("Wins: " + wins);
     console.log(winner);
+    totalScore=0;
+    
 }
 
 function loser () {
     alert ("You lost. Click reset to try again.")
     losses++;
-    $("#id-losses").text(losses);
+    $("#id-losses").text("Losses: " + losses);
     console.log(loser);
+    totalScore=0;
 }
 
-
-
 //clicking on fruit
-$('#fruit-1').on('click', function(){
-    totalScore= totalScore + fruit1;
+
+$(document).on("click", "#fruit-1", function(){
+  console.log("click");
+    totalScore += fruit1;
     console.log("New Total= " + totalScore);
-    $('#id-totalScore').text(totalScore); 
+    $('#id-totalscore').text("Your Total Score: " + totalScore); 
           //Win & lose conditions
         if (totalScore == chooseNumber){
           winner();
@@ -105,10 +109,10 @@ $('#fruit-1').on('click', function(){
           loser();
         }   
   })  
-  $('#fruit-2').on('click', function(){
-    totalScore = totalScore + fruit2;
+  $(document).on("click", "#fruit-2", function(){
+    totalScore += fruit2;
     console.log("New Total= " + totalScore);
-    $('#id-totalscore').text(totalScore); 
+    $('#id-totalscore').text("Your Total Score: " + totalScore); 
         if (totalScore == chooseNumber){
           winner();
         }
@@ -116,10 +120,10 @@ $('#fruit-1').on('click', function(){
           loser();
         } 
   })  
-  $('#fruit-3').on('click', function(){
-    totalScore = totalScore + fruit3;
+  $(document).on("click", "#fruit-3", function(){
+    totalScore += fruit3;
     console.log("New Total= " + totalScore);
-    $('#id-totalscore').text(totalScore);
+    $('#id-totalscore').text("Your Total Score: " + totalScore);
 
           if (totalScore == chooseNumber){
           winner();
@@ -128,10 +132,10 @@ $('#fruit-1').on('click', function(){
           loser();
         } 
   })  
-  $('#fruit-4').on('click', function(){
-    totalScore = totalScore + fruit4;
+  $(document).on("click", "#fruit-4", function(){
+    totalScore += fruit4;
     console.log("New Total= " + totalScore);
-    $('#id-totalscore').text(totalScore); 
+    $('#id-totalscore').text("Your Total Score: " + totalScore); 
       
           if (totalScore == chooseNumber){
           winner();
