@@ -17,6 +17,7 @@ $("#id-totalscore").html("Your Total Score: " + totalScore);
 
 var randomNumberArray = [];
 
+
 //setting values to fruit 
 var fruit1= Math.floor(Math.random()*11+1);
 var fruit2= Math.floor(Math.random()*11+1);
@@ -47,9 +48,13 @@ function startGame () {
     fruit2;
     fruit3;
     fruit4;
-   
-    
+
+    clickFruit();
 }
+      
+    
+    
+
 //setting start button to startGame function
 $(document).on("click", "#start", function() {
     startGame();
@@ -59,18 +64,21 @@ $(document).on("click", "#start", function() {
 })
 
 function reset() {
-    var totalScore=0;
+    totalScore = 0;
     $("#id-totalscore").html("Your Total Score: " + totalScore);
     //var chooseNumber = Math.floor(Math.random()*101+19); 
     //var displayRandomNumber = document.querySelector("#id-randomnumber");
     chooseNumber = Math.floor(Math.random()*101+19); 
     displayRandomNumber = document.querySelector("#id-randomnumber");
     displayRandomNumber.textContent="Random Number: " + chooseNumber;
-    fruit1; //if you just have fruit1; then it keeps first number assigned to fruit1 
-    fruit2; 
-    fruit3;
-    fruit4;
+    fruit1 = Math.floor(Math.random()*11+1); //if you just have fruit1; then it keeps first number assigned to fruit1 
+    fruit2 = Math.floor(Math.random()*11+1);
+    fruit3 = Math.floor(Math.random()*11+1);
+    fruit4 = Math.floor(Math.random()*11+1);
+    
 }
+      
+
 
 $(document).on("click", "#reset", function() {
     reset();
@@ -94,7 +102,7 @@ function loser () {
     totalScore=0;
 }
 
-//clicking on fruit
+function clickFruit() {
 
 $(document).on("click", "#fruit-1", function(){
   console.log("click");
@@ -102,7 +110,7 @@ $(document).on("click", "#fruit-1", function(){
     console.log("New Total= " + totalScore);
     $('#id-totalscore').text("Your Total Score: " + totalScore); 
           //Win & lose conditions
-        if (totalScore == chooseNumber){
+        if (totalScore === chooseNumber){
           winner();
         }
         else if ( totalScore > chooseNumber){
@@ -113,7 +121,7 @@ $(document).on("click", "#fruit-1", function(){
     totalScore += fruit2;
     console.log("New Total= " + totalScore);
     $('#id-totalscore').text("Your Total Score: " + totalScore); 
-        if (totalScore == chooseNumber){
+        if (totalScore === chooseNumber){
           winner();
         }
         else if ( totalScore > chooseNumber){
@@ -125,7 +133,7 @@ $(document).on("click", "#fruit-1", function(){
     console.log("New Total= " + totalScore);
     $('#id-totalscore').text("Your Total Score: " + totalScore);
 
-          if (totalScore == chooseNumber){
+          if (totalScore === chooseNumber){
           winner();
         }
         else if ( totalScore > chooseNumber){
@@ -137,12 +145,13 @@ $(document).on("click", "#fruit-1", function(){
     console.log("New Total= " + totalScore);
     $('#id-totalscore').text("Your Total Score: " + totalScore); 
       
-          if (totalScore == chooseNumber){
+          if (totalScore === chooseNumber){
           winner();
         }
         else if ( totalScore > chooseNumber){
           loser();
         }
   });   
+}
 
 
